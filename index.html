@@ -168,7 +168,9 @@
 
 <script>
 (() => {
-  const COLS = 17, ROWS = 10, CELL = 46, PAD = 10;
+  // portrait phones get a rotated 10x17 grid so cells stay big enough to tap
+  const PORTRAIT = window.innerWidth < window.innerHeight && window.innerWidth < 800;
+  const COLS = PORTRAIT ? 10 : 17, ROWS = PORTRAIT ? 17 : 10, CELL = 46, PAD = 10;
   const TIME_LIMIT = 120;
 
   const canvas = document.getElementById('board');
